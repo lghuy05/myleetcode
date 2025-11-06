@@ -1,3 +1,2 @@
-x = y = 5
-y += 5
-print(x)
+a = "12"
+print(a.split())

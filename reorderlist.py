@@ -3,33 +3,35 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        """
-        Do not return anything, modify head in-place instead.
-        """
-        # getting mid list to flip it
-        if not head:
+        if not head or not head.next:
             return head
 
-        slow, fast = head, head
+        fast = slow = head
+
+        #get half list
 
         while fast and fast.next:
-            slow = slow.next
             fast = fast.next.next
+            slow = slow.next
 
-        second_head = slow.next
+        right_halves = slow.next
         slow.next = None
 
-        current = second_head
-        new_slow = None
-        while current:
-            next_node = current.next
-            current.next = new_slow
-            new_slow = current
-            current = next_node
+        #sort that list
 
-        first, second = head, new_slow
+        new_head = None
+        current = right_halves
+        while current:
+            next_val = current.next
+            current.next = new_head
+            new_head = current
+            current = next_val
+
+        first, second = head, new_head
+
         while second:
             first_next = first.next
             second_next = second.next
@@ -40,4 +42,3 @@ class Solution:
             first = first_next
             second = second_next
 
-        return head
