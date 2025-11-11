@@ -1,6 +1,3 @@
-from datetime import datetime
-from dateutil import parser
-
-a = datetime.now()
-b = parser.parse(a)
+a = [1, 2, 3, 4]
+b = sorted(a, reverse=True)
 print(b)
