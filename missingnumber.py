@@ -12,8 +12,11 @@ class Solution:
         # return -1
 
         # O(nlog(n)) time complexity which is slower,  but less memory usage
-        nums.sort()
-        for i, value in enumerate(nums):
-            if i != value:
-                return i
-        return len(nums)
+        # nums.sort()
+        # for i, value in enumerate(nums):
+        #     if i != value:
+        #         return i
+        # return len(nums)
+
+        # O(n) time complexity and O(1) space complexity
+        return sum(range(len(nums) - 1)) - sum(nums)
