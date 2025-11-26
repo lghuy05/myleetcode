@@ -3,10 +3,10 @@ from typing import List
 
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
-        li: set = set(nums)
-        if len(li) == len(nums):
-            return False
-        return True
+        # O(1)
+        if len(set(nums)) == len(nums):
+            return True
+        return False
 
 
 sol = Solution()
