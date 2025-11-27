@@ -1,34 +1,32 @@
 from typing import List
 
 
-# class Solution:
-#     def twoSum(self, ques: List[int], target: int):
-#         li: List[int] = []
-#         n: int = len(ques)
-#         for i in range(n):
-#             for j in range(i + 1, n):
-#                 if target - ques[i] == ques[j]:
-#                     return [i, j]
-#
-#         return []
-#
-#
-# sol = Solution()
-# print(sol.twoSum([1, 2, 3, 4, 5], 7))  # 1, 4
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # O(n) time complexity and O(n) space usage
+        # n = len(nums)
+        # hash = {}
+        # for i in range(n):
+        #     remain = target - nums[i]
+        #     if remain in hash:
+        #         return [hash[remain], i]
+        #     hash[nums[i]] = i
+
+        # O(n*n) time complexity and O(1) space
+        # n = len(nums)
+        # for i in range(n - 1):
+        #     for j in range(i + 1, n):
+        #         remain = target - nums[i]
+        #         if remain == nums[j]:
+        #             return [i, j]
+
+        # O(n) time complexity and O(n) space usage
+        hash = {}
+        for i, v in enumerate(nums):
+            if target - v in hash:
+                return [i, hash[target - v]]
+            hash[v] = i
 
 
-def twoSum(nums: List[int], target: int):
-    hash: dict = {}
-    n: int = len(nums)
-    for i in range(n):
-        if not hash:
-            hash[nums[i]] = i
-        else:
-            aim: int = target - nums[i]
-            if aim in hash:
-                return [hash[aim], i]
-        hash[nums[i]] = i
-    return []
-
-
-print(twoSum([1, 2, 3, 4, 5], 7))
+sol = Solution()
+print(sol.twoSum([1, 2, 3, 4, 5], 7))
