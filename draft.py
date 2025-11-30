@@ -1,2 +1,2 @@
-a = [1, 2, 3]
-print(a.index(4))
+a = 1000
+print(int(str(a)[::-1]))
