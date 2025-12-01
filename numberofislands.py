@@ -4,7 +4,7 @@ from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        # O(n*n) time complexity
+        # O(m*n) time complexity
         visit = set()
         islands = 0
         rows, cols = len(grid), len(grid[0])
