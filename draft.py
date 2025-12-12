@@ -1,2 +1,4 @@
-a = [1, 2, 3]
-print(a.index(4))
+from collections import deque
+
+a = deque([1])
+print(a.pop())
