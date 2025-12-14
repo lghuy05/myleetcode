@@ -1,4 +1,7 @@
-from collections import deque
+a = "SAV_E20"
 
-a = deque([1])
-print(a.pop())
+for char in a:
+    if not char.isalnum() and char != "_":
+        break
+else:
+    print("Valid")

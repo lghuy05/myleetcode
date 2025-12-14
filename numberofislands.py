@@ -4,33 +4,33 @@ from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        # O(m*n) time complexity
-        visit = set()
         islands = 0
-        rows, cols = len(grid), len(grid[0])
+        rows = len(grid)
+        cols = len(grid[0])
+        visited = set()
 
         def bfs(r, c):
-            q = deque()
-            q.append((r, c))
-            visit.add((r, c))
-            directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
-            while q:
-                row, col = q.popleft()
-                for rd, cd in directions:
-                    new_row = row + rd
-                    new_col = col + cd
+            queue = deque()
+            queue.append((r, c))
+            visited.add((r, c))
+            directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+            while queue:
+                row, col = queue.popleft()
+                for r, c in directions:
+                    new_row = row + r
+                    new_col = col + c
                     if (
                         new_row in range(rows)
                         and new_col in range(cols)
-                        and (new_row, new_col) not in visit
                         and grid[new_row][new_col] == "1"
+                        and (new_row, new_col) not in visited
                     ):
-                        q.append((new_row, new_col))
-                        visit.add((new_row, new_col))
+                        queue.append((new_row, new_col))
+                        visited.add((new_row, new_col))
 
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == "1" and (r, c) not in visit:
-                    bfs(r, c)
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == "1" and (i, j) not in visited:
+                    bfs(i, j)
                     islands += 1
         return islands
