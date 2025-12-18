@@ -1,3 +1,3 @@
-score = 100
-over70 = lambda score: score > 70
-print(over70(score))
+a = [1, 2, 3]
+b = a[1:1]
+print(b)
