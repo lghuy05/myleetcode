@@ -8,7 +8,7 @@ class Solution:
         path = set()
 
         def dfs(r, c, i):
-            if i == len(word):
+            if len(path) == len(word):
                 return True
 
             if (
