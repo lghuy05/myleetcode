@@ -3,19 +3,21 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
-        left = 0
-        right = 1
-        max_profit = 0
+        # pattern I see:
+        # 1 <  n < 10**5
+        # brute force solution is n**2 where for each i we comparing prices[i] with prices[j] where j go from i to n
+        # consider two pointers
+        # TC: O(n), SC: O(1)
+        left, right = 0, 1
         n = len(prices)
+        result = 0
         while right < n:
-            if prices[right] < prices[left]:
-                left = right
+            if prices[right] > prices[left]:
+                result = max(result, prices[right] - prices[left])
             else:
-                max_profit = max(max_profit, prices[right] - prices[left])
+                left = right
             right += 1
-        return max_profit
+        return result
 
 
 sol = Solution()
