@@ -1,1 +1,2 @@
-print("a" < "b")
+a = "bca"
+a.sort()
