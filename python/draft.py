@@ -1,2 +1,3 @@
-a = "bca"
-a.sort()
+a = 123
+for i in a:
+    print(a)
