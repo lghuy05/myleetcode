@@ -8,8 +8,8 @@ class Solution:
         nums.sort()
 
         def backtracking(current, start):
+            result.append(current[:])
             for i in range(start, n):
-                result.append(current[:])
                 if i > start and nums[i] == nums[i - 1]:
                     continue
                 current.append(nums[i])

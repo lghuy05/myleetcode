@@ -1,3 +1,5 @@
-a = "12222"
-a.replace("2", "")
-print(a)
+def add(a, b):
+    return a + b
+
+
+print(add(1, 2))
