@@ -1,3 +1,4 @@
-a = {1,2,3}
-b = a.copy()
-print(b)
+from collections import Counter
+a = "abc"
+c = "cba"
+print(Counter(a) == Counter(c))
