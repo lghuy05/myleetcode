@@ -1,4 +1,2 @@
-from collections import Counter
-a = "abc"
-c = "cba"
-print(Counter(a) == Counter(c))
+a = 1e-6
+print(a)
