@@ -1,3 +1,3 @@
-
-for i in range(10):
-    print(i)
+a = [5,4,3]
+a.pop(1)
+print(a)
