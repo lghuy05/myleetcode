@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
-#include <deque>
 #include <string>
+#include <unordered_map>
+
 using namespace std;
+
 int main() {
-  string t = "5";
-  int a = stoi(t);
-  cout << a;
+  vector<int> a = {1, 2, 3};
+  int b = a.begin();
+  cout << b;
   return 0;
 }
