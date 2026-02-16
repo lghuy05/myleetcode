@@ -15,7 +15,6 @@ public:
         } else {
           maxLeft = height[left];
         }
-
       } else {
         if (maxRight - height[--right] > 0) {
           ans += maxRight - height[right];
