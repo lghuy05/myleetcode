@@ -1,19 +1,15 @@
-import requests
+class Dog:
+    species = "animal" #Class attribute
 
-url = "https://api.open-meteo.com/v1/forecast"
+    def __init__(self, name): #instance attribute
+        self.name = name
 
+    def __str__(self):
+        return "name "  + self.name
 
-params = {
-    "latitude": 27.9506,
-    "longitude": -82.4572,
-    "current_weather": True
-}
+dog1 = Dog("a")
+print(dog1.name)
 
-response = requests.get(url, params=params)
-
-data = response.json()
-
-print(data)
-print("Temperature:", data["current_weather"]["temperature"])
-
+dog2 = Dog("a")
+print(dog2.name)
 
