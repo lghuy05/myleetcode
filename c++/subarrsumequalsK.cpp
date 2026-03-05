@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
+#include <unordered_map>
 
 using namespace std;
 class Solution {
 public:
   int subarraySum(vector<int> &nums, int k) {
-    vector<int> prefix(nums.size() + 1, 0);
-    for (int i = 1; i < prefix.size(); i++) {
-      prefix[i] = prefix[i - 1] + nums[i - 1];
-    }
+    unordered_map<int, int> hash;
+    hash[0] = 1;
+    int prefix = 0;
     int ans = 0;
-    for (int j = 2; j < prefix.size(); j++) {
-      for (int i = 1; i < j; i++) {
-        if (prefix[j] - prefix[i] == k) {
-          ans++;
-        }
+    for (int n : nums) {
+      prefix += n;
+      if (hash.count(prefix - k)) {
+        ans += hash[prefix - k];
       }
+      hash[prefix]++;
     }
     return ans;
   }
