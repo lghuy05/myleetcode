@@ -15,9 +15,9 @@ public:
 
     while (left < right) {
 
-      while (!check(s[left]))
+      while (left < right && !check(s[left]))
         left++;
-      while (!check(s[right]))
+      while (left < right && !check(s[right]))
         right--;
 
       if (s[left] >= 'A' && s[left] <= 'Z')
