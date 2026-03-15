@@ -5,15 +5,12 @@ using namespace std;
 class Solution {
 public:
   bool containsNearbyDuplicate(vector<int> &nums, int k) {
-    unordered_set<int> window;
-    for (int i = 0; i < nums.size(); i++) {
-      if (window.count(nums[i])) {
+    unordered_set<int> hash;
+    for (int num : nums) {
+      if (hash.count(num)) {
         return true;
       }
-      window.insert(nums[i]);
-      if (window.size() > k) {
-        window.erase(nums[i - k]);
-      }
+      hash.insert(num);
     }
     return false;
   }
