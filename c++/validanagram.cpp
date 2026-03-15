@@ -5,18 +5,15 @@
 using namespace std;
 class Solution {
 public:
-  bool isAnagram(string s, string t) {}
-  unordered_map<char, int> mp;
-  for (char i : s) {
-    mp[i]++;
-  }
-  unordered_map<char, int> mp2;
-  for (char i : t) {
-    mp2[i]++;
-  }
-  if (mp == mp2) {
-    return true;
-  } else {
-    return false;
+  bool isAnagram(string s, string t) {
+    unordered_map<int, int> freq1;
+    unordered_map<int, int> freq2;
+    for (char num : s) {
+      freq1[num]++;
+    }
+    for (char num : t) {
+      freq2[num]++;
+    }
+    return freq1 == freq2;
   }
 };

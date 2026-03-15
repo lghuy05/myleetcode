@@ -1,15 +1,18 @@
 #include <bits/stdc++.h>
+#include <unordered_map>
 using namespace std;
 class Solution {
 public:
   vector<int> twoSum(vector<int> &nums, int target) {
-    unordered_map<int, int> mp;
+    unordered_map<int, int> hash;
+    int remain;
     for (int i = 0; i < nums.size(); i++) {
-      if (mp.count((target - nums[i]))) {
-        return {mp[target - nums[i]], i};
+      remain = target - nums[i];
+      if (hash.count(remain)) {
+        return {hash[remain], i};
       }
-      mp[nums[i]] = i;
+      hash[nums[i]] = i;
     }
-    return {};
+    return {0};
   }
 };
