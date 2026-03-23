@@ -1,22 +1,20 @@
-#include <algorithm>
-#include <bits/stdc++.h>
-#include <cstdint>
-
 class Solution {
 public:
-  int maxArea(vector<int> &height) {
-    int left = 0, right = height.size() - 1;
-    int max_vol = 0;
+  int maxArea(vector<int> &heights) {
+    // idea container depend on max(min(left, right)*(right - left))
+    int left = 0;
+    int right = heights.size() - 1;
+    int res = 0;
     while (left < right) {
-      max_vol = std::max(max_vol, (right - left) *
-                                      std::min(height[left], height[right]));
-
-      if (height[left] < height[right]) {
+      int height = min(heights[left], heights[right]);
+      int base = right - left;
+      res = max(res, base * height);
+      if (heights[left] <= heights[right]) {
         left++;
       } else {
         right--;
       }
     }
-    return max_vol;
-  };
+    return res;
+  }
 };
